@@ -1,0 +1,53 @@
+<robot
+  name="left_wheel" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <joint name="left_wheel_joint" type="fixed">
+      <origin xyz="0 0.242 0.301"
+              rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <parent link="base_link1"/>
+      <child link="left_wheel_link" />
+  </joint>
+
+  <link
+    name="left_wheel_link">
+   <!-- <inertial>
+      <origin
+        xyz="-7.9420377562674E-06 ${0.24951709372592-0.2495} ${-0.288056803732584-0.2945}"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0.00000993"
+        ixy="0"
+        ixz="0"
+        iyy="0.0000045"
+        iyz="0"
+        izz="0.00000993" />
+    </inertial> -->
+
+    <visual>
+      <origin
+        xyz="0 -0.2495 -0.2945"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hansagv_gazebo/urdf/agv/left_wheel/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="${255/255} ${108/255} ${10/255} 1.0" />
+      </material>
+    </visual>
+    <!--collision>
+      <origin
+        xyz="0 -0.2495 -0.2945"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hansagv_gazebo/urdf/agv/left_wheel/meshes/left_wheel.STL" />
+      </geometry>
+    </collision--> 
+  </link>
+</robot>

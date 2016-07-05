@@ -1,0 +1,51 @@
+<robot
+  name="red_link" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <joint name="base_red" type="fixed">
+      <origin xyz="0 0 0"
+              rpy="0 0 0"/>
+      <parent link="base_link1"/>
+      <child link="red_link" />
+  </joint>
+
+  <link
+    name="red_link">
+    <!--inertial>
+      <origin
+        xyz="-0.008747151893453 0.1593100957611 -0.0114382366551848"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial-->
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hansagv_gazebo/urdf/agv/red_link/meshes/red_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.8 0.0 0.0 1.0" />
+      </material>
+    </visual>
+    <!--collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hansagv_gazebo/urdf/agv/red_link/meshes/red_link.STL" />
+      </geometry>
+    </collision--> 
+  </link>
+</robot>

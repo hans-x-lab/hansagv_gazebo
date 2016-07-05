@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>hansagv_gazebo</name>
+  <version>0.0.0</version>
+  <description>The package for simulation of X-1 plus in Gazebo</description>
+
+  <maintainer email="liucong.cdhaw@gmail.com">Cong Liu</maintainer>
+
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+
+  </export>
+</package>

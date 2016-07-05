@@ -1,0 +1,22 @@
+<launch>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="gui" value="true" />
+    <arg name="world_name" value="$(find hansagv_gazebo)/worlds/X_Lab.world"/>
+  </include>
+  
+  <include file="$(find hansagv_gazebo)/launch/includes/hansagv.launch.xml">
+  </include>
+  
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="30.0" />
+  </node>
+  
+  <node pkg="hansagv_gazebo" type="topic_remap_x1_plus" name="topic_remap_x1_plus"/>
+
+  <!-- Laser -->
+  <node pkg="nodelet" type="nodelet" name="laserscan_nodelet_manager" args="manager"/>
+
+</launch>

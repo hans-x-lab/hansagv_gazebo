@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<robot name="hansagv" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find hansagv_gazebo)/urdf/agv/base_link/robots/base_link.xacro" />
+
+  <!-- Hansagv --> 
+  <xacro:macro name="hansagv">   
+  <link name="base_footprint" />
+
+    <joint name="base_joint" type="fixed">
+      <origin xyz="0 0 0.0102" rpy="0 0 0" />
+      <parent link="base_footprint"/>
+      <child link="base_link" />
+    </joint>
+
+    <link name="base_link">
+      <collision>
+        <geometry>
+          <box size="0.8 0.6 0.10938"/>
+        </geometry>
+        <origin xyz="0.0 0 0.05949" rpy="0 0 0"/>
+      </collision>
+      <inertial>
+        <origin xyz="0.01 0 0"/>
+        <mass value="2.4"/>
+        <inertia ixx="0.0743928" ixy="0.0" ixz="0.0"
+                 iyy="0.1303928" iyz="0.0" 
+                 izz="0.20" />
+      </inertial>
+    </link>
+   
+  </xacro:macro>
+
+</robot>

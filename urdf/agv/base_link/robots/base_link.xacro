@@ -1,0 +1,75 @@
+<robot
+  name="car_base" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="PI" value="3.1415926535898"/>
+
+ <xacro:include filename="$(find hansagv_gazebo)/urdf/agv/right_wheel/robots/right_wheel.xacro" />
+ <xacro:include filename="$(find hansagv_gazebo)/urdf/agv/left_wheel/robots/left_wheel.xacro" />
+
+ <xacro:include filename="$(find hansagv_gazebo)/urdf/agv/blue_link/robots/blue_link.xacro" />
+ <xacro:include filename="$(find hansagv_gazebo)/urdf/agv/gray_link/robots/gray_link.xacro" />
+ <xacro:include filename="$(find hansagv_gazebo)/urdf/agv/orange_link/robots/orange_link.xacro" />
+ <xacro:include filename="$(find hansagv_gazebo)/urdf/agv/red_link/robots/red_link.xacro" />
+ <xacro:include filename="$(find hansagv_gazebo)/urdf/agv/green_link/robots/green_link.xacro" />
+
+ <xacro:include filename="$(find hansagv_gazebo)/urdf/hansbase.gazebo" />
+
+  <joint name="base_base1" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_link1"/>
+      <origin
+        xyz="0 0 0.315"
+        rpy="${-PI/2} 0 ${PI}" />
+  </joint>
+
+  <link
+    name="base_link1">
+   <!-- <inertial>
+      <origin
+        xyz="0.00841524765021477 -0.00315151713656052 -0.142821517333806"
+        rpy="0 0 0" />
+      <mass
+        value="10.4649686087084" />
+      <inertia
+        ixx="0.532167254454805"
+        ixy="0.00138678194565612"
+        ixz="-0.00300970036360727"
+        iyy="0.875418828096318"
+        iyz="-0.00209057289052577"
+        izz="1.24592193831132" />
+    </inertial> -->
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hansagv_gazebo/urdf/agv/base_link/meshes/base_link.STL"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1.0 1.0 1.0 1.0" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hansagv_gazebo/urdf/agv/base_link/meshes/base_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="laser_to_base" type="fixed">
+        <parent link="base_link"/>
+        <child link="laser_link"/>
+        <origin xyz="0.450 0 0.210" rpy="0 0 0"/>
+  </joint>
+
+  <link name="laser_link"/>
+
+</robot>
