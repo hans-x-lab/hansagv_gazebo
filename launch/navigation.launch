@@ -1,0 +1,11 @@
+<launch>
+
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find hansagv_gazebo)/maps/xlab.yaml"/>
+
+  <include file="$(find hansagv_gazebo)/launch/includes/amcl.launch.xml"/>
+  
+  <include file="$(find hansagv_gazebo)/launch/includes/move_base.launch.xml"/>
+  
+  <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find hansagv_gazebo)/rviz/navigation.rviz" />
+  
+</launch>
