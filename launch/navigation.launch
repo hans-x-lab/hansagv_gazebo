@@ -1,6 +1,8 @@
 <launch>
 
-  <node pkg="map_server" type="map_server" name="map_server" args="$(find hansagv_gazebo)/maps/xlab.yaml"/>
+  <arg name="map_file" default="$(find hansagv_gazebo)/maps/xlab.yaml"/>
+
+  <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)"/>
 
   <include file="$(find hansagv_gazebo)/launch/includes/amcl.launch.xml"/>
   
