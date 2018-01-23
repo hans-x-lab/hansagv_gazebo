@@ -14,8 +14,6 @@
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
   
-  <node pkg="hansagv_gazebo" type="topic_remap_x1_plus" name="topic_remap_x1_plus">
-    <remap from="cmd_vel_mux/input/teleop" to="turtlebot_teleop_keyboard/cmd_vel"/>
-  </node>
+  <node pkg="hansagv_gazebo" type="topic_remap_x1_plus" name="topic_remap_x1_plus"/>
 
 </launch>
